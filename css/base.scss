@@ -1,0 +1,102 @@
+*{
+  margin:0;
+  padding:0;
+  text-decoration: none;
+  list-style: none;
+  border:none;
+  font-style:normal;
+}
+body{
+  font-size: 15px;
+}
+
+//iconfont的练习
+@font-face {
+  font-family: "iconfont";
+  src:url("../font/iconfont.woff") format("woff");
+}
+.icon{
+  font-family: "iconfont";
+}
+//.icon-huanhuobz::before { content: "\e604"; }
+
+
+//引入appel的字体
+
+@font-face {
+  font-family: "apple-ap";
+  src:url("../font/appleicons_thin.woff") format("woff");
+}
+@font-face {
+  font-family: "apple-extrathin";
+  src:url("../font/myriad-set-pro_extrathin.woff") format("woff");
+}
+@font-face {
+  font-family: "apple-semibold";
+  src:url("../font/myriad-set-pro_semibold.woff") format("woff");
+}
+@font-face {
+  font-family: "apple-text";
+  src:url("../font/myriad-set-pro_text.woff") format("woff");
+}
+@font-face {
+  font-family: "apple-thin";
+  src:url("../font/myriad-set-pro_thin.woff") format("woff");
+}
+.apple-ap{
+  font-family: "apple-ap";
+}
+.apple-semibold{
+  font-family: "apple-semibold";
+}
+.apple-extrathin{
+  font-family: "apple-extrathin";
+}
+.apple-text{
+  font-family: "apple-text";
+}
+.apple-thin{
+  font-family: "apple-thin";
+}
+@font-face {
+  font-family:'Apple Icons';
+  font-style:normal;
+  font-weight:200;
+  src:local('â˜ºï¸Ž'), url("../font/appleicons_thin.woff") format("woff");
+}
+.prev{
+
+  font-family: "Apple Icons";
+}
+//row col 删格
+
+$max-width:1366px;
+$bh1-width:1068px;
+$bh2-width:735px;
+$list:("l":$max-width,"m":$bh1-width,"s":$bh2-width);
+@each $i  in map-keys($list){
+  @media screen and (max-width:map_get($list,$i)){
+    @for $r from 1 through 12{
+      .col.#{$i}#{$r}{
+        width:percentage($r/12);
+        float: left;
+      }
+    }
+  }
+
+}
+
+
+//居中混合宏
+@mixin t-align{
+  position: absolute;
+  left:0;
+  right:0;
+  margin:0 auto;
+}
+@mixin l-align{
+  position: absolute;
+  top:0;
+  bottom:0;
+  margin:0 auto;
+}
